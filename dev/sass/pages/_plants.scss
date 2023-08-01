@@ -1,0 +1,71 @@
+.plants-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+
+  &__leaves {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transform-origin: left bottom;
+
+    @include mq('laptop-large') {
+      transform: scale(0.9);
+    }
+
+    @include mq('tablet') {
+      transform: scale(0.6);
+    }
+
+    &--mirrored {
+      left: unset;
+      right: 0;
+      transform: scaleX(-1) translateX(100%);
+      transform-origin: right bottom;
+
+      @include mq('laptop-large') {
+        display: none;
+      }
+    }
+  }
+
+  &__container {
+    max-width: rem(1314);
+  }
+
+  &__scene {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 388px;
+  }
+
+  &__buttons {
+    position: absolute;
+    top: rem(156);
+    left: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, rem(210));
+    column-gap: rem(50);
+    transform: translateX(-50%);
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(3, rem(114));
+      column-gap: rem(8);
+      top: rem(148);
+    }
+  }
+
+  &__button {
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) {
+        animation-delay: $i * 0.3 + s;
+      }
+    }
+  }
+}

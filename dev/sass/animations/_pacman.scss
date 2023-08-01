@@ -1,0 +1,79 @@
+@keyframes moveDownSecondRow {
+  from {
+    transform: translate(var(--move-x-end), 0) rotate(90deg) scaleY(-1);
+  }
+
+  to {
+    transform: translate(var(--move-x-end), var(--move-y-second-row)) rotate(90deg) scaleY(-1);
+  }
+}
+
+@keyframes moveDownThirdRow {
+  from {
+    transform: translate(0, var(--move-y-second-row)) rotate(90deg);
+  }
+
+  to {
+    transform: translate(0, var(--move-y-third-row)) rotate(90deg);
+  }
+}
+
+@keyframes moveRight {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(var(--move-x-end), 0);
+  }
+}
+
+@keyframes moveRightReverse {
+  from {
+    transform: translate(var(--move-x-end), var(--move-y-second-row)) rotate(0) scaleX(-1);
+  }
+
+  to {
+    transform: translate(0, var(--move-y-second-row)) scaleX(-1);
+  }
+}
+
+@keyframes moveRight-1 {
+  from {
+    transform: translate(0, var(--move-y-third-row));
+  }
+
+  to {
+    transform: translate(var(--move-x-end-1), var(--move-y-third-row));
+  }
+}
+
+@keyframes hide {
+  from {
+    visibility: visible;
+  }
+
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes mouthTop {
+  from {
+    transform: rotate(-25deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes mouthBottom {
+  from {
+    transform: rotate(5deg);
+  }
+
+  to {
+    transform: rotate(-5deg);
+  }
+}

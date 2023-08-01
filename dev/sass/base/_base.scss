@@ -1,0 +1,76 @@
+:root {
+  --scrollWidth: 0px;
+  --containerIndentX: #{rem(60)};
+
+  @include mq('laptop') {
+    --containerIndentX: #{rem(30)};
+  }
+
+  @include mq('tablet-small') {
+    --containerIndentX: #{rem(5)};
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 1rem;
+  height: 100%;
+}
+
+* {
+  box-sizing: inherit;
+
+  &:before,
+  &:after {
+    @extend *;
+  }
+}
+
+body {
+  -webkit-font-smoothing: antialiased; //Make text look good on mac(Tim Van Damme test)
+  color: $black;
+  font: #{$font-size-base}/#{$line-height-base} $font-family-base;
+  height: 100%;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility; //The browser emphasizes legibility over rendering speed and geometric precision. This enables kerning and optional ligatures. https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
+}
+
+body.preload * {
+  animation-duration: 0s !important;
+  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
+::selection {
+  color: $white;
+  background-color: rgba($color-accent, 0.9);
+}
+
+@include make-headlines($font-size-base, $scale-typography);
+
+a {
+  background: transparent;
+  color: inherit;
+  text-decoration: $link-hover-decoration;
+  transition: color 0.2s;
+
+  @include hover {
+    color: $color-link-hover;
+    text-decoration: none;
+  }
+}
+
+p {
+  font-size: $font-size-base;
+  font-weight: 400;
+  line-height: rem(26);
+}
+
+.app {
+  display: flex;
+  min-height: 100%;
+}
+
+.animated {
+  opacity: 0;
+  animation: slideInEffect 1s forwards;
+}

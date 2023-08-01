@@ -1,0 +1,26 @@
+extends templates/layout
+
+block main
+  div.page-wrapper.pacman-page
+    div.container.pacman-page__container
+      h1.heading.heading--h1.pacman-page__heading.animated Which industry gobbles-up the most forests globally?
+
+      div.pacman-page__content
+        div.pacman-page__buttons.animated
+          a(
+            class="button button--ghost pacman-page__button"
+            href="#"
+          ) Beef
+          a(
+            class="button button--ghost pacman-page__button"
+            href="#"
+          ) Palm Oil
+          a(
+            class="button button--ghost pacman-page__button"
+            href="#"
+          ) Soy bean
+
+        div.pacman-scene.pacman-page__scene.animated
+          div.__pacman
+          each _ in Array(17)
+            div.__tree

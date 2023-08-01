@@ -1,0 +1,158 @@
+:root {
+  --scene-width: #{rem(465)};
+  --scene-gap-x: #{rem(15)};
+  --scene-gap-y: #{rem(10)};
+  --pacman-width: #{rem(65)};
+  --pacman-height: #{rem(85)};
+  --tree-width: #{rem(65)};
+  --tree-height: #{rem(85)};
+
+  --move-x-end: calc(var(--scene-width) - var(--pacman-width));
+  --move-x-end-1: calc(var(--scene-width) - var(--pacman-width) * 2 - var(--scene-gap-x));
+  --move-y-second-row: calc(var(--pacman-height) + var(--scene-gap-y));
+  --move-y-third-row: calc((var(--pacman-height) + var(--scene-gap-y)) * 2);
+
+  @include mq('laptop') {
+    --scene-width: #{rem(338)};
+    --scene-gap-x: #{rem(10)};
+    --scene-gap-y: #{rem(9)};
+    --pacman-width: #{rem(48)};
+    --pacman-height: #{rem(63)};
+    --tree-width: #{rem(48)};
+    --tree-height: #{rem(63)};
+  }
+}
+
+$start-delay: 2;
+
+.pacman-scene {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--tree-width));
+  grid-gap: var(--scene-gap-y) var(--scene-gap-x);
+  justify-content: center;
+  max-width: var(--scene-width);
+  width: 100%;
+
+  &__tree {
+    height: var(--tree-height);
+    background: url('../images/tree.png') no-repeat center center / 100%;
+
+    @media(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      background-image: url('../images/tree-@2x.png');
+    }
+
+    &:not(:last-child) {
+      animation-name: hide;
+      animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-delay: $start-delay + s;
+    }
+
+    $excludeIndexFrom: 7;
+    $excludeIndexTo: 12;
+    $k: $excludeIndexTo;
+
+    @for $i from 1 through 17 {
+      @if ($i < $excludeIndexFrom) {
+        &:nth-of-type(#{$i}) {
+          animation-duration: $i * 0.6 - 1 + s;
+        }
+      } @else if ($i > $excludeIndexTo) {
+        &:nth-of-type(#{$i}) {
+          $delay: 0;
+
+          @if ($i == 13) {
+            $delay: 0.5;
+          }
+
+          animation-duration: $i * 0.6 - $delay + s;
+        }
+      } @else {
+        &:nth-of-type(#{$k}) {
+          $delay: 0.5;
+
+          @if ($k == 12) {
+            $delay: 1;
+          }
+
+          animation-duration: $i * 0.6 - $delay + s;
+        }
+
+        $k: $k - 1;
+      }
+    }
+  }
+
+  &__pacman {
+    $pacman-speed-per-element: 0.51111111166;
+    $pacman-speed: $pacman-speed-per-element * 6;
+    $pacman-rotate-speed: 1;
+
+    position: relative;
+    width: rem(77);
+    margin-left: rem(-6);
+    animation-name: moveRight, moveDownSecondRow, moveRightReverse, moveDownThirdRow, moveRight-1;
+    animation-duration:
+      $pacman-speed + s,
+      $pacman-rotate-speed + s,
+      $pacman-speed + s,
+      $pacman-rotate-speed + s,
+      $pacman-speed - $pacman-speed-per-element + s;
+    animation-delay:
+      $start-delay + s,
+      $start-delay + $pacman-speed + s,
+      $start-delay + $pacman-speed + $pacman-rotate-speed + s,
+      $start-delay + $pacman-speed * 2 + $pacman-rotate-speed + s,
+      $start-delay + $pacman-speed * 2 + $pacman-rotate-speed * 2 + s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      transform-origin: center left;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      top: rem(15);
+      left: rem(6);
+      width: rem(57);
+      height: rem(37);
+      background-image: url('../images/pacman-top.png');
+      animation: mouthTop 0.4s infinite;
+
+      @media(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        background-image: url('../images/pacman-top-@2x.png');
+      }
+
+      @include mq('laptop') {
+        width: rem(46);
+      }
+    }
+
+    &::after {
+      top: rem(28);
+      width: rem(77);
+      height: rem(42);
+      background-image: url('../images/pacman-bottom.png');
+      animation: mouthBottom 0.4s infinite;
+
+      @media(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        background-image: url('../images/pacman-bottom-@2x.png');
+      }
+
+      @include mq('laptop') {
+        width: rem(59);
+      }
+    }
+
+    @include mq('laptop') {
+      width: rem(59);
+    }
+  }
+}

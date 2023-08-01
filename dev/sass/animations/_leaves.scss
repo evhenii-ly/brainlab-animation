@@ -1,0 +1,19 @@
+@keyframes wiggling1 {
+  0%, 100% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+@keyframes wiggling2 {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+}

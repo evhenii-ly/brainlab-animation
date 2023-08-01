@@ -1,0 +1,21 @@
+.leaves {
+  &__branch1 g {
+    transform-origin: left top;
+    animation: wiggling1 10s ease-in-out forwards infinite;
+  }
+
+  &__branch2 g {
+    transform-origin: left top;
+    animation: wiggling1 12s ease-in-out forwards infinite;
+  }
+
+  &__branch3 g {
+    transform-origin: left top;
+    animation: wiggling2 10s ease-in-out forwards infinite;
+  }
+
+  &__branch4 g {
+    transform-origin: bottom center;
+    animation: wiggling2 14s ease-in-out forwards infinite;
+  }
+}

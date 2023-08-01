@@ -1,0 +1,38 @@
+extends templates/layout
+
+block main
+  div.page-wrapper.plants-page
+    - var className = "plants-page__leaves"
+    include templates/svg/leaves
+    - var className = "plants-page__leaves plants-page__leaves--mirrored"
+    include templates/svg/leaves
+
+    div.container.plants-page__container
+      h1.heading.heading--h1.plants-page__heading.animated What makes our everyday products so irresistab-oil?
+      div#scene.scene.plants-page__scene
+        div.buttons-group.plants-page__buttons
+          button(
+            class="button button--ghost-primary plants-page__button animated"
+            type='button'
+            data-name='rapeseed'
+            data-ext='svg'
+            data-count='54'
+          ) Rapeseed
+          button(
+            class="button button--ghost-primary plants-page__button animated"
+            type='button'
+            data-name='sunflower'
+            data-ext='png'
+            data-count='35'
+          ) Sunflower
+          button(
+            class="button button--ghost-primary plants-page__button animated"
+            type='button'
+            data-name='palm'
+            data-ext='png'
+            data-count='24'
+          ) Palm
+
+block scripts
+  script(src="./assets/js/main.js")
+

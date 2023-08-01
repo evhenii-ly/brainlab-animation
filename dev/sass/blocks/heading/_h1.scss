@@ -1,0 +1,14 @@
+.heading--h1 {
+  color: $color-headers;
+  font-weight: 900;
+  font-size: rem(54);
+  line-height: rem(62);
+  text-transform: uppercase;
+  text-align: center;
+
+  @include mq('tablet') {
+    font-size: rem(28);
+    line-height: rem(31);
+    text-transform: none;
+  }
+}

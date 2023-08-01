@@ -1,0 +1,95 @@
+{
+	"textures": [
+		{
+			"image": "sprite.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 407,
+				"h": 121
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "palm.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 193,
+						"h": 163
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 19,
+						"w": 137,
+						"h": 119
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 137,
+						"h": 119
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "sunflower.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 171,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 171,
+						"h": 108
+					},
+					"frame": {
+						"x": 140,
+						"y": 1,
+						"w": 171,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "rapeseed.svg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 93,
+						"h": 103
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 93,
+						"h": 103
+					},
+					"frame": {
+						"x": 313,
+						"y": 1,
+						"w": 93,
+						"h": 103
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:2e0937b5bd7b566992c01d1f75cac336:a669e4dc092fe550d936dc1ce77d148b:9c44ecd7e9a522007eaff2949095bc1d$"
+	}
+}
